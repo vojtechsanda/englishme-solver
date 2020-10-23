@@ -1,0 +1,14 @@
+.em-solver {
+    &__wrapper {
+        position: fixed;
+        z-index: 10000;
+        top: 16px;
+        right: 16px;
+
+        width: 250px;
+        height: 400px;
+        background: #fff;
+        box-shadow: 0px 0.4375rem 1.813rem 0px rgba(0, 0, 0, 0.08);
+        border-radius: 0.875rem;
+    }
+}
