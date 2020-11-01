@@ -23,7 +23,7 @@ class Solver {
                     </div>
                     <div class="em-solver__btns-wrapper">
                         <button class="em-solver__btn">Solve everything!</button>
-                        <button class="em-solver__btn" disabled>Fill current task</button>
+                        <button class="em-solver__btn" disabled>Fill current task!</button>
                     </div>
                 </main>
                 <footer class="em-solver__footer">

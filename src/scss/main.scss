@@ -1,5 +1,13 @@
-$color__main: #e62832;
+@import './themes.scss';
+
+$color__white: #fff;
+$color__main--light: #e62832;
+$color__main--dark: #e93f48;
 $color__red--error: #ff0033;
+$color__txt--light: #f0f0f0;
+$color__txt--dark: #1d1d1d;
+$color__background--light: #fff;
+$color__background--dark: #1d1d1d;
 
 .em-solver,
 .em-solver *,
@@ -17,15 +25,23 @@ $color__red--error: #ff0033;
     right: 16px;
 
     width: 300px;
-    background: #fff;
     box-shadow: 0px 0.4375rem 1.813rem 0px rgba(0, 0, 0, 0.08);
     border-radius: 0.875rem;
     padding: 12px 16px;
     text-align: center;
-
+    
     display: flex;
     flex-direction: column;
-
+    
+    @include light_theme(true) {
+        background: $color__background--light;
+        color: $color__txt--dark;
+    }
+    @include dark_theme() {
+        background: $color__background--dark;
+        color: $color__txt--light;
+    }
+    
     &__heading {
         font-weight: bold;
         font-size: 24px;
@@ -41,6 +57,13 @@ $color__red--error: #ff0033;
         height: 16px;
         width: 16px;
         cursor: pointer;
+
+        @include light_theme(true) {
+            fill: $color__txt--dark;
+        }
+        @include dark_theme() {
+            fill: $color__txt--light;
+        }
     }
     &__main {
         flex: 1;
@@ -61,19 +84,27 @@ $color__red--error: #ff0033;
         align-items: center;
     }
     &__btn {
-        color: $color__main;
-        background: #fff;
-        border: 2px solid $color__main;
         padding: 7px 15px;
         border-radius: 3px;
         font-weight: bold;
         line-height: 1;
         transition: background .25s, color .25s;
         cursor: pointer;
+        
+        @include light_theme(true) {
+            color: $color__main--light;
+            border: 2px solid $color__main--light;
+            background: $color__background--light;
+        }
+        @include dark_theme() {
+            color: $color__main--dark;
+            border: 2px solid $color__main--dark;
+            background: $color__background--dark;
+        }
 
         &:not(:disabled):hover {
-            color: #fff;
-            background: $color__main;
+            color: $color__white;
+            background: $color__main--dark;
         }
         &:not(:last-child) {
             margin-bottom: 8px;
@@ -96,13 +127,25 @@ $color__red--error: #ff0033;
         margin-left: 6px;
     }
     &__link {
-        color: $color__main;
         text-decoration: none;
         font-weight: bold;
 
+        @include light_theme(true) {
+            color: $color__main--light;
+        }
+        @include dark_theme() {
+            color: $color__main--dark;
+        }
+
         &:hover {
-            color: $color__main;
             text-decoration: underline;
+
+            @include light_theme(true) {
+                color: $color__main--light;
+            }
+            @include dark_theme() {
+                color: $color__main--dark;
+            }
         }
     }
     &__link-block {
@@ -111,5 +154,17 @@ $color__red--error: #ff0033;
     &__icon {
         height: 20px;
         width: 20px;
+        transition: transform .25s;
+
+        @include light_theme(true) {
+            fill: $color__txt--dark;
+        }
+        @include dark_theme() {
+            fill: $color__txt--light;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 }
