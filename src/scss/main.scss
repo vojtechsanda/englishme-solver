@@ -5,10 +5,17 @@
         top: 16px;
         right: 16px;
 
-        width: 250px;
+        width: 300px;
         height: 400px;
         background: #fff;
         box-shadow: 0px 0.4375rem 1.813rem 0px rgba(0, 0, 0, 0.08);
         border-radius: 0.875rem;
+        padding: 12px 16px;
+        text-align: center;
+    }
+
+    &__heading {
+        font-weight: bold;
+        font-size: 24px;
     }
 }
