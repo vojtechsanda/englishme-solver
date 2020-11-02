@@ -52,7 +52,7 @@ class Solver {
             </section>
         `;
 
-        let contentWrapper = document.querySelector('body');
+        const contentWrapper = document.querySelector('body');
         contentWrapper.insertAdjacentHTML('beforeend', markup);
     }
 
