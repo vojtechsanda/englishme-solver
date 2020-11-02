@@ -9,6 +9,5 @@ ex.words.words.forEach((w,i) => {
     w.use_last_round = (i+1);
 })
 abcd();
-$(location).attr('href', ex.getLinkComplete());
-
+location.href = window.ex.getLinkComplete();
 ```
