@@ -1,16 +1,22 @@
 const appCss = require('../scss/main.scss').toString();
 
+import Analyzer from './Analyzer'
+import WordsSolver from './solvers/WordsSolver'
+
 class Solver {
     constructor() {
-        this.state = {};
-        this.elements = {};
+        this.id = Math.floor(Math.random()*1000000);
         this.version = '2.0.0'
+        this.state = {};
+        this.solvers = {};
+        this.elements = {};
     }
+
     render() {
         const typeTxt = this.state.type === undefined ? 'Unsupported' : (this.state.type ? this.state.type.name : 'Unable to analyze');
 
         const markup = `
-            <section class="js-em-solver em-solver">
+            <section class="js-em-solver em-solver" data-em-solver-id="${this.id}">
                 <style>${appCss}</style>
                 <header class="em-solver__header">
                     <h1 class="em-solver__heading">Englishme Solver</h1>
@@ -25,7 +31,7 @@ class Solver {
                         <!-- <p class="em-solver__error">Unable to analyze the task type</p> -->
                     </div>
                     <div class="em-solver__btns-wrapper">
-                        <button class="em-solver__btn">Solve everything!</button>
+                        <button class="em-solver__btn js-em-solver__btn--solve"${!this.state.type ? ' disabled' : ''}>Solve everything!</button>
                         <button class="em-solver__btn" disabled>Fill current task!</button>
                     </div>
                 </main>
@@ -49,34 +55,39 @@ class Solver {
         let contentWrapper = document.querySelector('body');
         contentWrapper.insertAdjacentHTML('beforeend', markup);
     }
+
     analyzeType() {
-        let typeObj;
-
-        const supportedTypes = [
-            {
-                code: 'words',
-                name: 'Words'
-            }
-        ]
-
-        const hostname = location.hostname;
-        const path = location.pathname;
-        const pathParts = path.split('/');
-
-        if (hostname !== 'englishme.cz' || pathParts.length < 2) {
-            return null;
-        }
-
-        const type = pathParts[1];
-        if (!(typeObj = supportedTypes.find(typeItem => typeItem.code === type))) {
-            return undefined;
-        }
-
-        return typeObj;
+        this.analyzer = new Analyzer;
+        this.state.type = this.analyzer.analyze();
     }
+
+    solve(code) {
+        this.solvers[code].solve();
+    }
+
+    saveElements() {
+        const solverWrapper = document.querySelector(`.js-em-solver[data-em-solver-id="${this.id}"]`);
+        
+        this.elements.solverWrapper = solverWrapper;
+        this.elements.solveBtn = solverWrapper.querySelector('.js-em-solver__btn--solve');
+    }
+
+    setupSolvers() {
+        this.solvers.words = new WordsSolver;
+    }
+
+    setupEvents() {
+        this.elements.solveBtn.addEventListener('click', () => {
+            this.solve(this.state.type.code);
+        })
+    }
+
     init() {
-        this.state.type = this.analyzeType();
+        this.analyzeType();
         this.render();
+        this.saveElements();
+        this.setupSolvers();
+        this.setupEvents();
     }
 }
 
