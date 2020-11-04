@@ -6,7 +6,7 @@ export default class WordsSolver {
             word.use_level = 2;
             word.use_last_round = (i+1);
         });
-        window.abcd();
+        window.save(true);
         window.location.href = window.ex.getLinkComplete();
     }
 }
