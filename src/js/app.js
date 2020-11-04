@@ -2,6 +2,7 @@ const appCss = require('../scss/main.scss').toString();
 
 import Analyzer from './Analyzer'
 import WordsSolver from './solvers/WordsSolver'
+import TestsSolver from './solvers/TestsSolver'
 
 class Solver {
     constructor() {
@@ -74,6 +75,7 @@ class Solver {
 
     setupSolvers() {
         this.solvers.words = new WordsSolver;
+        this.solvers.tests = new TestsSolver;
     }
 
     setupEvents() {

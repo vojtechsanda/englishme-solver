@@ -5,6 +5,11 @@ export default class Analyzer {
                 code: 'words',
                 urlPart: 'words',
                 name: 'Words'
+            },
+            {
+                code: 'tests',
+                urlPart: 'tests',
+                name: 'Tests'
             }
         ]
     }
@@ -24,6 +29,26 @@ export default class Analyzer {
         }
 
         return false
+    }
+
+    isTests() {
+        if (
+            window.ex &&
+            window.ex.questions &&
+            window.ex.questions[0] &&
+            window.ex.questions[0].hasOwnProperty('use_choice') &&
+            window.ex.questions[0].hasOwnProperty('use_last_round') &&
+            window.ex.questions[0].hasOwnProperty('use_correct') &&
+            window.ex.questions[0].hasOwnProperty('use_count') &&
+            typeof window.ex.next === 'function' &&
+            typeof window.showQuestion === 'function' &&
+            typeof window.ex.getCurrentQuestion === 'function' &&
+            window.ex.hasOwnProperty('linkComplete')
+        ) {
+            return true;
+        }
+
+        return false;
     }
 
     analyze() {
