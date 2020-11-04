@@ -7,7 +7,7 @@ import TestsSolver from './solvers/TestsSolver'
 class Solver {
     constructor() {
         this.id = Math.floor(Math.random()*1000000);
-        this.version = '2.0.0'
+        this.version = '2.0.1'
         this.state = {};
         this.solvers = {};
         this.elements = {};
