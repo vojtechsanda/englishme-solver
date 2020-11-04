@@ -23,12 +23,14 @@ export default class Analyzer {
             window.ex.words.words[0].hasOwnProperty('use_count') &&
             window.ex.words.words[0].hasOwnProperty('use_wrong') &&
             window.ex.words.words[0].hasOwnProperty('use_level') &&
-            window.ex.words.words[0].hasOwnProperty('use_wrong')
+            window.ex.words.words[0].hasOwnProperty('use_wrong') &&
+            typeof window.abcd === 'function' &&
+            typeof window.ex.getLinkComplete === 'function'
         ) {
-            return true
+            return true;
         }
 
-        return false
+        return false;
     }
 
     isTests() {

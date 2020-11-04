@@ -7,6 +7,6 @@ export default class WordsSolver {
             word.use_last_round = (i+1);
         });
         window.abcd();
-        location.href = window.ex.getLinkComplete();
+        window.location.href = window.ex.getLinkComplete();
     }
 }
