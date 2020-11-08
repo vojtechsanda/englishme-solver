@@ -1,7 +1,45 @@
-# Englishme-solver
-## Solver for the "words" task type
+# [Englishme.cz](https://englishme.cz) Solver
+## Table of Contents
+* [Usage](#usage)
+  * [Solve everything](#solve-everything)
+  * [Fill current task](#fill-current-task)
+* [Snippets](#snippets)
+  * [Words](#words)
+  * [Tests](#tests)
+  * [Sentences](#sentences)
+* [Supported exercises](#exercise-support)
+* [License](#license)
+* [Changelog](#changelog)
+
+## Usage
+* Start the exercise you want to solve
+* Copy the code from [`/dist/app.js`](https://github.com/vojtechsanda/englishme-solver/blob/master/dist/app.js#L1)
+* [Open developer console](https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers#answer-77337) and paste the code into it
+* Hit `Enter`
+* If the exercise type is not supported, there will be "Unsupported" or "Unable to analyze" text shown instead of the exercise type
+
+### Solve everything
+* By hitting that button, the exersice is solved with a 100% score
+* In most exercises, you will get 100% no matter what you have answered so far
+* But in these exercises, just the unanswered ones will be correctly solved
+  * The "Sentences" exercise type
+
+### Fill current task
+* :exclamation: **This feature hasn't been implemeted yet** :exclamation:
+* By hitting that button, just the current task will be filled out
+* This option is for those, who want to practice, but don't want to get a bad score
+  * You will say an answer that you think is correct and check it with this option
+
+## Snippets
+* There is a list of solvers snippets
+* You can paste those inside the console and solve the exercise without any GUI - instant "Solve everything"
+* Always use proper snippet for the exercise you are solving
+* Be careful, there is no support check, so you can mess up the exercise
+
+### Words
+* The url starts with `https://englishme.cz/words/`
 ```javascript
-// Solver for  the words type
+// Solver for the words type
 window.ex.words.words.forEach((word,i) => {
     word.use_count = 1;
     word.use_wrong = 0;
@@ -11,7 +49,8 @@ window.ex.words.words.forEach((word,i) => {
 window.save(true);
 window.location.href = window.ex.getLinkComplete();
 ```
-## Solver for the "tests" task type
+### Tests
+* The url starts with `https://englishme.cz/tests/`
 ```javascript
 // Solver for the tests type
 window.ex.questions.forEach((question, i) => {
@@ -22,8 +61,10 @@ window.ex.questions.forEach((question, i) => {
 window.save(true);
 window.location.href = window.ex.linkComplete;
 ```
-## Solver for the "senteces" task type
+### Senteces
+* The url starts with `https://englishme.cz/sentences/`
 ```javascript
+// Solver for the sentences type
 window.reviewOneSentence = function() {return true};
 for (let i = 0; i < window.ex.sentencesCount; i++) {
     window.reviewSentencesClick(document.querySelector('#review'));
@@ -32,3 +73,33 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 }
 window.location.href = document.querySelector('#linkComplete').href;
 ```
+
+## Supported exercises
+* Basic type recognition is based on the url -> ht<span>tps://englishme.cz/**words**/
+* Words type
+  * :heavy_check_mark: Solve everything
+  * :x: Fill current task - English
+  * :x: Fill current task - Czech
+* Tests type
+  * :heavy_check_mark: Solve everything
+  * :x: Fill current task
+* Senteces type
+  * :heavy_check_mark: Solve everything
+  * :x: Fill current task
+
+## License
+* Distributed under the ISC License. See `LICENSE` for more information.
+
+## Changelog
+* v2.0.2
+  * Added analyzer and solver for the "senteces" exercise type
+  * Added normal README file
+  * Simplified solvers code
+* v2.0.1
+  * Added "solve everything" for the "tests" exercise type
+  * Added "solve everything" for the "words" exercise type
+  * Added dark/light mode
+  * Added popup styles
+  * Minor improvements
+* v2.0.0
+  * Just a popup, no functionality
