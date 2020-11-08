@@ -5,7 +5,7 @@ import WordsSolver from './solvers/WordsSolver'
 import TestsSolver from './solvers/TestsSolver'
 import SentencesSolver from './solvers/SentencesSolver';
 
-class Solver {
+class EmSolver {
     constructor() {
         this.id = Math.floor(Math.random()*1000000);
         this.version = '2.0.2'
@@ -95,5 +95,5 @@ class Solver {
     }
 }
 
-const solver = new Solver;
+const solver = new EmSolver;
 solver.init();
