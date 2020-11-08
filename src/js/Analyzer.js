@@ -10,6 +10,11 @@ export default class Analyzer {
                 code: 'tests',
                 urlPart: 'tests',
                 name: 'Tests'
+            },
+            {
+                code: 'sentences',
+                urlPart: 'sentences',
+                name: 'Sentences'
             }
         ]
     }
@@ -46,6 +51,24 @@ export default class Analyzer {
             typeof window.showQuestion === 'function' &&
             typeof window.ex.getCurrentQuestion === 'function' &&
             window.ex.hasOwnProperty('linkComplete')
+        ) {
+            return true;
+        }
+
+        return false;
+    }
+
+    isSentences() {
+        if (
+            window.ex &&
+            window.ex.sentencesCount &&
+            typeof window.ex.next === 'function' &&
+            typeof window.reviewOneSentence === 'function' &&
+            typeof window.reviewSentencesClick === 'function' &&
+            typeof window.showSentence === 'function' &&
+            document.querySelector('#review') &&
+            document.querySelector('#linkComplete') &&
+            document.querySelector('#linkComplete').href
         ) {
             return true;
         }
