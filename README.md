@@ -7,7 +7,7 @@
   * [Words](#words)
   * [Tests](#tests)
   * [Sentences](#sentences)
-* [Supported exercises](#exercise-support)
+* [Supported exercises](#supported-exercises)
 * [License](#license)
 * [Changelog](#changelog)
 
@@ -16,24 +16,24 @@
 * Copy the code from [`/dist/app.js`](https://github.com/vojtechsanda/englishme-solver/blob/master/dist/app.js#L1)
 * [Open developer console](https://webmasters.stackexchange.com/questions/8525/how-do-i-open-the-javascript-console-in-different-browsers#answer-77337) and paste the code into it
 * Hit `Enter`
-* If the exercise type is not supported, there will be "Unsupported" or "Unable to analyze" text shown instead of the exercise type
+* If the exercise type is not supported, there will be shown "Unsupported" or "Unable to analyze" text instead of the exercise type
 
 ### Solve everything
-* By hitting that button, the exersice is solved with a 100% score
-* In most exercises, you will get 100% no matter what you have answered so far
-* But in these exercises, just the unanswered ones will be correctly solved
+* By hitting that button, the exercise will be solved with a 100% score
+* In most exercises, you will get 100% no matter what you've answered so far
+* But in these ones, just the unanswered tasks will be solved correctly
   * The "Sentences" exercise type
 
 ### Fill current task
 * :exclamation: **This feature hasn't been implemeted yet** :exclamation:
 * By hitting that button, just the current task will be filled out
-* This option is for those, who want to practice, but don't want to get a bad score
-  * You will say an answer that you think is correct and check it with this option
+* This option is for those, who want to practice it, but don't want to get a bad score
+  * You will say the answer, that you think is correct and check it with this option
 
 ## Snippets
 * There is a list of solvers snippets
 * You can paste those inside the console and solve the exercise without any GUI - instant "Solve everything"
-* Always use proper snippet for the exercise you are solving
+* Always use the proper snippet for the exercise you are solving
 * Be careful, there is no support check, so you can mess up the exercise
 
 ### Words
