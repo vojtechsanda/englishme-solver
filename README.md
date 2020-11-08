@@ -21,7 +21,7 @@
 ### Solve everything
 * By hitting that button, the exercise will be solved with a 100% score
 * In most exercises, you will get 100% no matter what you've answered so far
-* But in these ones, just the unanswered tasks will be solved correctly
+* But in these ones, just the unanswered tasks will be solved
   * The "Sentences" exercise type
 
 ### Fill current task
