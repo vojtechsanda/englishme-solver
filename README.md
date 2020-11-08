@@ -95,6 +95,7 @@ window.location.href = document.querySelector('#linkComplete').href;
   * Added analyzer and solver for the "senteces" exercise type
   * Added normal README file
   * Simplified solvers code
+  * Defined project under the ISC License
 * v2.0.1
   * Added "solve everything" for the "tests" exercise type
   * Added "solve everything" for the "words" exercise type
