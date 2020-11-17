@@ -91,6 +91,8 @@ window.location.href = document.querySelector('#linkComplete').href;
 * Distributed under the ISC License. See `LICENSE` for more information.
 
 ## Changelog
+* v2.0.3
+  * Fixed analyzer
 * v2.0.2
   * Added analyzer and solver for the "senteces" exercise type
   * Added normal README file
