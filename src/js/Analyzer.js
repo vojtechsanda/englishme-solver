@@ -29,7 +29,7 @@ export default class Analyzer {
             window.ex.words.words[0].hasOwnProperty('use_wrong') &&
             window.ex.words.words[0].hasOwnProperty('use_level') &&
             window.ex.words.words[0].hasOwnProperty('use_wrong') &&
-            typeof window.abcd === 'function' &&
+            typeof window.save === 'function' &&
             typeof window.ex.getLinkComplete === 'function'
         ) {
             return true;
@@ -43,14 +43,11 @@ export default class Analyzer {
             window.ex &&
             window.ex.questions &&
             window.ex.questions[0] &&
-            window.ex.questions[0].hasOwnProperty('use_choice') &&
             window.ex.questions[0].hasOwnProperty('use_last_round') &&
             window.ex.questions[0].hasOwnProperty('use_correct') &&
             window.ex.questions[0].hasOwnProperty('use_count') &&
-            typeof window.ex.next === 'function' &&
-            typeof window.showQuestion === 'function' &&
-            typeof window.ex.getCurrentQuestion === 'function' &&
-            window.ex.hasOwnProperty('linkComplete')
+            window.ex.hasOwnProperty('linkComplete') &&
+            typeof window.save === 'function'
         ) {
             return true;
         }
