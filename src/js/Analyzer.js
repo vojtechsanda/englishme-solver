@@ -79,7 +79,7 @@ export default class Analyzer {
         const path = location.pathname;
         const pathParts = path.split('/');
 
-        if (hostname !== 'englishme.cz' || pathParts.length < 2) {
+        if ((hostname !== 'englishme.cz' && hostname !== 'www.englishme.cz') || pathParts.length < 2) {
             return null;
         }
 
