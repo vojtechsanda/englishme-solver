@@ -4,22 +4,31 @@ export default class Analyzer {
             {
                 code: 'words',
                 urlPart: 'words',
-                name: 'Words'
+                name: 'Words',
+                solveSupport: true,
+                fillSupport: false,
             },
             {
                 code: 'tests',
                 urlPart: 'tests',
-                name: 'Tests'
+                name: 'Tests',
+                solveSupport: true,
+                fillSupport: false,
             },
             {
                 code: 'sentences',
                 urlPart: 'sentences',
-                name: 'Sentences'
+                name: 'Sentences',
+                solveSupport: true,
+                fillSupport: false,
             }
         ]
     }
 
     isWords() {
+        let solveSupport = false;
+        let fillSupport = false;
+
         if (
             window.ex &&
             window.ex.words &&
@@ -32,13 +41,20 @@ export default class Analyzer {
             typeof window.save === 'function' &&
             typeof window.ex.getLinkComplete === 'function'
         ) {
-            return true;
+            solveSupport = true;
+        }
+        
+        if (false) {
+            fillSupport = true;
         }
 
-        return false;
+        return [solveSupport, fillSupport];
     }
 
     isTests() {
+        let solveSupport = false;
+        let fillSupport = false;
+
         if (
             window.ex &&
             window.ex.questions &&
@@ -49,13 +65,20 @@ export default class Analyzer {
             window.ex.hasOwnProperty('linkComplete') &&
             typeof window.save === 'function'
         ) {
-            return true;
+            solveSupport = true;
         }
 
-        return false;
+        if (false) {
+            fillSupport = true;
+        }
+
+        return [solveSupport, fillSupport];
     }
 
     isSentences() {
+        let solveSupport = false;
+        let fillSupport = false;
+
         if (
             window.ex &&
             window.ex.sentencesCount &&
@@ -67,10 +90,14 @@ export default class Analyzer {
             document.querySelector('#linkComplete') &&
             document.querySelector('#linkComplete').href
         ) {
-            return true;
+            solveSupport = true;
         }
 
-        return false;
+        if (false) {
+            fillSupport = true;
+        }
+
+        return [solveSupport, fillSupport];
     }
 
     analyze() {
@@ -88,11 +115,19 @@ export default class Analyzer {
             return undefined;
         }
 
+        let isSupported;
         const typeObj = typeObjs.find(typeObj => {
             const firstUpperCode = typeObj.code.split("")[0].toUpperCase() + typeObj.code.slice(1);
 
-            return this[`is${firstUpperCode}`]();
+            isSupported = this[`is${firstUpperCode}`]();
+
+            return isSupported[0] || isSupported[1];
         });
+
+        if (typeObj) {
+            typeObj.solveSupport = typeObj.solveSupport && isSupported[0] ? true : false;
+            typeObj.fillSupport = typeObj.fillSupport && isSupported[1] ? true : false;
+        }
 
         return typeObj;
     }

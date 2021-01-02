@@ -15,7 +15,7 @@ class EmSolver {
     }
 
     render() {
-        const typeTxt = this.state.type === undefined ? 'Unsupported' : (this.state.type ? this.state.type.name : 'Unable to analyze');
+        const typeTxt = this.state.type && (this.state.type.solveSupport || this.state.type.fillSupport) ? this.state.type.name : (this.state.type || this.state.type === undefined ? 'Unsupported' : 'Unable to analyze');
 
         const markup = `
             <section class="js-em-solver em-solver" data-em-solver-id="${this.id}">
@@ -33,8 +33,8 @@ class EmSolver {
                         <!-- <p class="em-solver__error">Unable to analyze the exercise type</p> -->
                     </div>
                     <div class="em-solver__btns-wrapper">
-                        <button class="em-solver__btn js-em-solver__btn--solve"${!this.state.type ? ' disabled' : ''}>Solve everything!</button>
-                        <button class="em-solver__btn" disabled>Fill current task!</button>
+                        <button class="em-solver__btn js-em-solver__btn--solve"${this.state.type && this.state.type.solveSupport ? '' : ' disabled'}>Solve everything!</button>
+                        <button class="em-solver__btn js-em-solver__btn--fill"${this.state.type && this.state.type.fillSupport ? '' : ' disabled'}>Fill current task!</button>
                     </div>
                 </main>
                 <footer class="em-solver__footer">
