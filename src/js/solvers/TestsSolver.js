@@ -6,6 +6,6 @@ export default class TestsSolver {
             question.use_count = 1;
         })
         window.save(true);
-        window.location.href = window.ex.linkComplete;
+        // window.location.href = window.ex.linkComplete;
     }
 }
