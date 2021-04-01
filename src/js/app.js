@@ -67,11 +67,16 @@ class EmSolver {
         this.solvers[code].solve();
     }
 
+    fill(code) {
+        this.solvers[code].fill();
+    }
+
     saveElements() {
         const solverWrapper = document.querySelector(`.js-em-solver[data-em-solver-id="${this.id}"]`);
         
         this.elements.solverWrapper = solverWrapper;
         this.elements.solveBtn = solverWrapper.querySelector('.js-em-solver__btn--solve');
+        this.elements.fillBtn = solverWrapper.querySelector('.js-em-solver__btn--fill');
     }
 
     setupSolvers() {
@@ -83,6 +88,10 @@ class EmSolver {
     setupEvents() {
         this.elements.solveBtn.addEventListener('click', () => {
             this.solve(this.state.type.code);
+        })
+
+        this.elements.fillBtn.addEventListener('click', () => {
+            this.fill(this.state.type.code);
         })
     }
 
