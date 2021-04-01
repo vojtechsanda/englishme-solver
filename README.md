@@ -25,10 +25,9 @@
   * The "Sentences" exercise type
 
 ### Fill current task
-* :exclamation: **This feature hasn't been implemeted yet** :exclamation:
 * By hitting that button, just the current task will be filled out
-* This option is for those, who want to practice it, but don't want to get a bad score
-  * You will say the answer, that you think is correct and check it with this option
+* This feature is for those, who want to practice it, but don't want to get a bad score
+  * You say/write your answer and then check it with this feature
 
 ## Snippets
 * There is a list of solvers snippets
@@ -75,19 +74,22 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 * Basic type recognition is based on the url -> ht<span>tps://englishme.cz/**words**/
 * Words type
   * :heavy_check_mark: Solve everything
-  * :x: Fill current task - English
+  * :heavy_check_mark: Fill current task - English
   * :x: Fill current task - Czech
 * Tests type
   * :heavy_check_mark: Solve everything
-  * :x: Fill current task
+  * :heavy_check_mark: Fill current task
 * Senteces type
   * :heavy_check_mark: Solve everything
-  * :x: Fill current task
+  * :heavy_check_mark: Fill current task
 
 ## License
 * Distributed under the ISC License. See `LICENSE` for more information.
 
 ## Changelog
+* v2.1.0
+  * Added fill feature
+  * Added close popup feature
 * v2.0.4
   * Quickfix for possible 0% success
 * v2.0.3

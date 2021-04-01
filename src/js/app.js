@@ -8,7 +8,7 @@ import SentencesSolver from './solvers/SentencesSolver';
 class EmSolver {
     constructor() {
         this.id = Math.floor(Math.random()*1000000);
-        this.version = '2.0.4'
+        this.version = '2.1.0';
         this.state = {};
         this.solvers = {};
         this.elements = {};
