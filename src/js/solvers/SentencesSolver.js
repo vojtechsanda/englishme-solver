@@ -6,6 +6,6 @@ export default class SentencesSolver {
             const next = window.ex.next();
             window.showSentence(next);
         }
-        window.location.href = document.querySelector('#linkComplete').href;
+        // window.location.href = document.querySelector('#linkComplete').href;
     }
 }

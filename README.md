@@ -47,7 +47,6 @@ window.ex.words.words.forEach((word,i) => {
     word.use_last_round = (i+1);
 });
 window.save(true);
-window.location.href = window.ex.getLinkComplete();
 ```
 ### Tests
 * The url starts with `https://englishme.cz/tests/`
@@ -59,7 +58,6 @@ window.ex.questions.forEach((question, i) => {
     question.use_count = 1;
 })
 window.save(true);
-window.location.href = window.ex.linkComplete;
 ```
 ### Senteces
 * The url starts with `https://englishme.cz/sentences/`
@@ -71,7 +69,6 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
     const next = window.ex.next();
     window.showSentence(next);
 }
-window.location.href = document.querySelector('#linkComplete').href;
 ```
 
 ## Supported exercises
@@ -91,6 +88,8 @@ window.location.href = document.querySelector('#linkComplete').href;
 * Distributed under the ISC License. See `LICENSE` for more information.
 
 ## Changelog
+* v2.0.4
+  * Quickfix for possible 0% success
 * v2.0.3
   * Fixed analyzer
 * v2.0.2
