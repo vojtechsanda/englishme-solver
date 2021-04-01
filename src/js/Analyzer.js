@@ -6,21 +6,21 @@ export default class Analyzer {
                 urlPart: 'words',
                 name: 'Words',
                 solveSupport: true,
-                fillSupport: false,
+                fillSupport: false
             },
             {
                 code: 'tests',
                 urlPart: 'tests',
                 name: 'Tests',
                 solveSupport: true,
-                fillSupport: true,
+                fillSupport: true
             },
             {
                 code: 'sentences',
                 urlPart: 'sentences',
                 name: 'Sentences',
                 solveSupport: true,
-                fillSupport: false,
+                fillSupport: true
             }
         ]
     }
@@ -72,7 +72,7 @@ export default class Analyzer {
             window.ex &&
             window.ex.questions &&
             document.querySelector('#question') &&
-            document.querySelectorAll('#choices a[id^=choice]')
+            document.querySelector('#choices a[id^=choice]')
         ) {
             fillSupport = true;
         }
@@ -98,7 +98,13 @@ export default class Analyzer {
             solveSupport = true;
         }
 
-        if (false) {
+        if (
+            window.ex && 
+            typeof window.ex.getCurrentSentence === 'function' &&
+            document.querySelector('*[id^=sentence]') &&
+            document.querySelector('.title-input input') &&
+            document.querySelector('.title-input + *[data-words-questions-id]')
+        ) {
             fillSupport = true;
         }
 
