@@ -13,7 +13,7 @@ export default class Analyzer {
                 urlPart: 'tests',
                 name: 'Tests',
                 solveSupport: true,
-                fillSupport: false,
+                fillSupport: true,
             },
             {
                 code: 'sentences',
@@ -68,7 +68,12 @@ export default class Analyzer {
             solveSupport = true;
         }
 
-        if (false) {
+        if (
+            window.ex &&
+            window.ex.questions &&
+            document.querySelector('#question') &&
+            document.querySelectorAll('#choices a[id^=choice]')
+        ) {
             fillSupport = true;
         }
 
