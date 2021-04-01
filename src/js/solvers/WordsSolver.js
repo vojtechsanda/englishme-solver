@@ -9,4 +9,10 @@ export default class WordsSolver {
         window.save(true);
         // window.location.href = window.ex.getLinkComplete();
     }
+
+    fill() {
+        const currentWord = ex.getCurrentWord();
+
+        document.querySelector(`#exercise input#answer_0`).value = currentWord.english;
+    }
 }
