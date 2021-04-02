@@ -10,17 +10,14 @@ export default class TestsSolver {
     }
 
     fill() {
-        const currentQuestion = window.ex.questions.find(question => question.question === document.querySelector('#question').innerHTML);
+        const currentQuestion = window.ex.getCurrentQuestion();
+        const correctAnswer = currentQuestion.choices[window.ex.getCorrectChoice()];
 
-        if (currentQuestion) {
-            const correctAnswer = currentQuestion.choices.find(choice => choice.correct);
-    
-            const answers = Array.from(document.querySelectorAll('#choices a[id^=choice]'));
-            answers.forEach(answer => {
-                if (Number(answer.dataset.id) !== correctAnswer.id) {
-                    answer.style.visibility = 'hidden';
-                }
-            })
-        }
+        const answers = Array.from(document.querySelectorAll('#choices a[id^=choice]'));
+        answers.forEach(answer => {
+            if (Number(answer.dataset.id) !== correctAnswer.id) {
+                answer.style.visibility = 'hidden';
+            }
+        })
     }
 }

@@ -75,8 +75,9 @@ export default class Analyzer {
 
         if (
             window.ex &&
-            window.ex.questions &&
-            document.querySelector('#question #choices a[id^=choice]')
+            typeof window.ex.getCurrentQuestion === 'function' &&
+            typeof window.ex.getCorrectChoice === 'function' &&
+            document.querySelector('#exercise #choices a[id^=choice]')
         ) {
             fillSupport = true;
         }

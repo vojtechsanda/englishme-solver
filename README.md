@@ -87,6 +87,8 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 * Distributed under the ISC License. See `LICENSE` for more information.
 
 ## Changelog
+* v2.1.1
+  * Improved and fixed tests filling
 * v2.1.0
   * Added fill feature
   * Added close popup feature
