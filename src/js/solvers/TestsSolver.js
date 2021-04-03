@@ -8,4 +8,16 @@ export default class TestsSolver {
         window.save(true);
         // window.location.href = window.ex.linkComplete;
     }
+
+    fill() {
+        const currentQuestion = window.ex.getCurrentQuestion();
+        const correctAnswer = currentQuestion.choices[window.ex.getCorrectChoice()];
+
+        const answers = Array.from(document.querySelectorAll('#choices a[id^=choice]'));
+        answers.forEach(answer => {
+            if (Number(answer.dataset.id) !== correctAnswer.id) {
+                answer.style.visibility = 'hidden';
+            }
+        })
+    }
 }
