@@ -48,7 +48,7 @@ class EmSolver {
                         <span class="em-solver__author-txt">Created by <a href="https://vojtechsanda.cz" target="_blank" class="em-solver__link">Vojtěch Šanda</a></span>
                     </div>
                     <div>
-                        <span>v.${ this.version }</span>
+                        <span>v${ this.version }</span>
                     </div>
                 </footer>
             </section>
