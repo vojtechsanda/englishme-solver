@@ -74,8 +74,7 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 * Basic type recognition is based on the url -> ht<span>tps://englishme.cz/**words**/
 * Words type
   * :heavy_check_mark: Solve everything
-  * :heavy_check_mark: Fill current task - English
-  * :x: Fill current task - Czech
+  * :heavy_check_mark: Fill current task
 * Tests type
   * :heavy_check_mark: Solve everything
   * :heavy_check_mark: Fill current task
