@@ -58,7 +58,7 @@ window.ex.questions.forEach((question, i) => {
 })
 window.save(true);
 ```
-### Senteces
+### Sentences
 * The url starts with `https://englishme.cz/sentences/`
 ```javascript
 // Solver for the sentences type
