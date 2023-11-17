@@ -3,21 +3,21 @@ export default class Analyzer {
     this.supportedTypes = [
       {
         code: 'words',
-        urlPart: 'words',
+        urlPathPrefix: '/app/words',
         name: 'Words',
         solveSupport: true,
         fillSupport: true,
       },
       {
         code: 'tests',
-        urlPart: 'tests',
+        urlPathPrefix: '/app/tests',
         name: 'Tests',
         solveSupport: true,
         fillSupport: true,
       },
       {
         code: 'sentences',
-        urlPart: 'sentences',
+        urlPathPrefix: '/app/sentences',
         name: 'Sentences',
         solveSupport: true,
         fillSupport: true,
@@ -119,17 +119,13 @@ export default class Analyzer {
   analyze() {
     let typeObjs;
     const hostname = location.hostname;
-    const path = location.pathname;
-    const pathParts = path.split('/');
 
-    if ((hostname !== 'englishme.cz' && hostname !== 'www.englishme.cz') || pathParts.length < 2) {
-      return null;
-    }
+    if (hostname !== 'englishme.cz' && hostname !== 'www.englishme.cz') return null;
 
-    const urlType = pathParts[1];
     if (
-      (typeObjs = this.supportedTypes.filter((typeItem) => typeItem.urlPart === urlType)).length ===
-      0
+      (typeObjs = this.supportedTypes.filter((typeItem) =>
+        location.pathname.startsWith(typeItem.urlPathPrefix)
+      )).length === 0
     ) {
       return undefined;
     }
