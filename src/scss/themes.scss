@@ -1,28 +1,28 @@
 @mixin dark_theme($default: false) {
-    @if $default {
-        @content;
-    }
+  @if $default {
+    @content;
+  }
 
-    @media (prefers-color-scheme: dark) {
-        @content;
-    }
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
 
-    body.dark-theme &,
-    &.dark-theme {
-        @content;
-    }
+  body.dark-theme &,
+  &.dark-theme {
+    @content;
+  }
 }
 @mixin light_theme($default: false) {
-    @if $default {
-        @content;
-    }
+  @if $default {
+    @content;
+  }
 
-    @media (prefers-color-scheme: light) {
-        @content;
-    }
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
 
-    body.light-theme &,
-    &.light-theme {
-        @content;
-    }
+  body.light-theme &,
+  &.light-theme {
+    @content;
+  }
 }

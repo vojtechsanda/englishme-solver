@@ -13,158 +13,158 @@ $color__background--dark: #1d1d1d;
 .em-solver *,
 .em-solver *::before,
 .em-solver *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .em-solver {
-    position: fixed;
-    z-index: 10000;
-    top: 16px;
-    right: 16px;
+  position: fixed;
+  z-index: 10000;
+  top: 16px;
+  right: 16px;
 
-    width: 300px;
-    box-shadow: 0px 0.4375rem 1.813rem 0px rgba(0, 0, 0, 0.08);
-    border-radius: 0.875rem;
-    padding: 12px 16px;
-    text-align: center;
-    
-    display: flex;
-    flex-direction: column;
-    
+  width: 300px;
+  box-shadow: 0px 0.4375rem 1.813rem 0px rgba(0, 0, 0, 0.08);
+  border-radius: 0.875rem;
+  padding: 12px 16px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+
+  @include light_theme(true) {
+    background: $color__background--light;
+    color: $color__txt--dark;
+  }
+  @include dark_theme() {
+    background: $color__background--dark;
+    color: $color__txt--light;
+  }
+
+  &__heading {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  &__subheading {
+    font-size: 14px;
+  }
+  &__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+
     @include light_theme(true) {
-        background: $color__background--light;
-        color: $color__txt--dark;
+      fill: $color__txt--dark;
     }
     @include dark_theme() {
-        background: $color__background--dark;
-        color: $color__txt--light;
+      fill: $color__txt--light;
     }
-    
-    &__heading {
-        font-weight: bold;
-        font-size: 24px;
-        margin-bottom: 6px;
-    }
-    &__subheading {
-        font-size: 14px;
-    }
-    &__close-btn {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        height: 16px;
-        width: 16px;
-        cursor: pointer;
+  }
+  &__main {
+    flex: 1;
 
-        @include light_theme(true) {
-            fill: $color__txt--dark;
-        }
-        @include dark_theme() {
-            fill: $color__txt--light;
-        }
-    }
-    &__main {
-        flex: 1;
+    padding: 12px 0 24px;
+  }
+  &__error {
+    font-size: 14px;
+    color: $color__red--error;
 
-        padding: 12px 0 24px;
+    &:last-child {
+      margin-bottom: 12px;
     }
-    &__error {
-        font-size: 14px;
-        color: $color__red--error;
+  }
+  &__btns-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__btn {
+    padding: 7px 15px;
+    border-radius: 3px;
+    font-weight: bold;
+    line-height: 1;
+    transition: background 0.25s, color 0.25s;
+    cursor: pointer;
 
-        &:last-child {
-            margin-bottom: 12px;
-        }
+    @include light_theme(true) {
+      color: $color__main--light;
+      border: 2px solid $color__main--light;
+      background: $color__background--light;
     }
-    &__btns-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    @include dark_theme() {
+      color: $color__main--dark;
+      border: 2px solid $color__main--dark;
+      background: $color__background--dark;
     }
-    &__btn {
-        padding: 7px 15px;
-        border-radius: 3px;
-        font-weight: bold;
-        line-height: 1;
-        transition: background .25s, color .25s;
-        cursor: pointer;
-        
-        @include light_theme(true) {
-            color: $color__main--light;
-            border: 2px solid $color__main--light;
-            background: $color__background--light;
-        }
-        @include dark_theme() {
-            color: $color__main--dark;
-            border: 2px solid $color__main--dark;
-            background: $color__background--dark;
-        }
 
-        &:not(:disabled):hover {
-            color: $color__white;
-            background: $color__main--dark;
-        }
-        &:not(:last-child) {
-            margin-bottom: 8px;
-        }
-        &:disabled {
-            cursor: no-drop;
-        }
+    &:not(:disabled):hover {
+      color: $color__white;
+      background: $color__main--dark;
     }
-    &__footer {
-        display: flex;
-        font-size: 12px;
-        align-items: center;
-        justify-content: space-between;
+    &:not(:last-child) {
+      margin-bottom: 8px;
     }
-    &__author-wrapper {
-        display: flex;
-        align-items: center;
+    &:disabled {
+      cursor: no-drop;
     }
-    &__author-txt {
-        margin-left: 6px;
-    }
-    &__link {
-        text-decoration: none;
-        font-weight: bold;
+  }
+  &__footer {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__author-wrapper {
+    display: flex;
+    align-items: center;
+  }
+  &__author-txt {
+    margin-left: 6px;
+  }
+  &__link {
+    text-decoration: none;
+    font-weight: bold;
 
-        @include light_theme(true) {
-            color: $color__main--light;
-        }
-        @include dark_theme() {
-            color: $color__main--dark;
-        }
-
-        &:hover {
-            text-decoration: underline;
-
-            @include light_theme(true) {
-                color: $color__main--light;
-            }
-            @include dark_theme() {
-                color: $color__main--dark;
-            }
-        }
+    @include light_theme(true) {
+      color: $color__main--light;
     }
-    &__link-block {
-        display: block;
+    @include dark_theme() {
+      color: $color__main--dark;
     }
-    &__icon {
-        height: 20px;
-        width: 20px;
-        transition: transform .25s;
 
-        @include light_theme(true) {
-            fill: $color__txt--dark;
-        }
-        @include dark_theme() {
-            fill: $color__txt--light;
-        }
+    &:hover {
+      text-decoration: underline;
 
-        &:hover {
-            transform: scale(1.1);
-        }
+      @include light_theme(true) {
+        color: $color__main--light;
+      }
+      @include dark_theme() {
+        color: $color__main--dark;
+      }
     }
+  }
+  &__link-block {
+    display: block;
+  }
+  &__icon {
+    height: 20px;
+    width: 20px;
+    transition: transform 0.25s;
+
+    @include light_theme(true) {
+      fill: $color__txt--dark;
+    }
+    @include dark_theme() {
+      fill: $color__txt--light;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
