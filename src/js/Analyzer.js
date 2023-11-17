@@ -29,25 +29,21 @@ export default class Analyzer {
     let solveSupport = false;
     let fillSupport = false;
 
+    const firstWord = window.ex?.words?.words?.[0];
     if (
-      window.ex &&
-      window.ex.words &&
-      window.ex.words.words &&
-      window.ex.words.words[0] &&
-      window.ex.words.words[0].hasOwnProperty('use_count') &&
-      window.ex.words.words[0].hasOwnProperty('use_wrong') &&
-      window.ex.words.words[0].hasOwnProperty('use_level') &&
-      window.ex.words.words[0].hasOwnProperty('use_wrong') &&
+      firstWord?.hasOwnProperty('use_count') &&
+      firstWord?.hasOwnProperty('use_wrong') &&
+      firstWord?.hasOwnProperty('use_level') &&
+      firstWord?.hasOwnProperty('use_wrong') &&
       typeof window.save === 'function' &&
-      typeof window.ex.getLinkComplete === 'function'
+      typeof window.ex?.getLinkComplete === 'function'
     ) {
       solveSupport = true;
     }
 
     if (
-      window.ex &&
-      window.ex.type === 'basic' &&
-      typeof window.ex.getCurrentWord === 'function' &&
+      window.ex?.type === 'basic' &&
+      typeof window.ex?.getCurrentWord === 'function' &&
       document.querySelector('#exercise input#answer_0')
     ) {
       fillSupport = true;
@@ -60,23 +56,20 @@ export default class Analyzer {
     let solveSupport = false;
     let fillSupport = false;
 
+    const firstQuestion = window.ex?.questions?.[0];
     if (
-      window.ex &&
-      window.ex.questions &&
-      window.ex.questions[0] &&
-      window.ex.questions[0].hasOwnProperty('use_last_round') &&
-      window.ex.questions[0].hasOwnProperty('use_correct') &&
-      window.ex.questions[0].hasOwnProperty('use_count') &&
-      window.ex.hasOwnProperty('linkComplete') &&
+      firstQuestion?.hasOwnProperty('use_last_round') &&
+      firstQuestion?.hasOwnProperty('use_correct') &&
+      firstQuestion?.hasOwnProperty('use_count') &&
+      window.ex?.hasOwnProperty('linkComplete') &&
       typeof window.save === 'function'
     ) {
       solveSupport = true;
     }
 
     if (
-      window.ex &&
-      typeof window.ex.getCurrentQuestion === 'function' &&
-      typeof window.ex.getCorrectChoice === 'function' &&
+      typeof window.ex?.getCurrentQuestion === 'function' &&
+      typeof window.ex?.getCorrectChoice === 'function' &&
       document.querySelector('#exercise #choices a[id^=choice]')
     ) {
       fillSupport = true;
@@ -90,9 +83,8 @@ export default class Analyzer {
     let fillSupport = false;
 
     if (
-      window.ex &&
-      window.ex.sentencesCount &&
-      typeof window.ex.next === 'function' &&
+      window.ex?.sentencesCount &&
+      typeof window.ex?.next === 'function' &&
       typeof window.reviewOneSentence === 'function' &&
       typeof window.reviewSentencesClick === 'function' &&
       typeof window.showSentence === 'function' &&
@@ -104,8 +96,7 @@ export default class Analyzer {
     }
 
     if (
-      window.ex &&
-      typeof window.ex.getCurrentSentence === 'function' &&
+      typeof window.ex?.getCurrentSentence === 'function' &&
       document.querySelector('*[id^=sentence]') &&
       document.querySelector('.title-input input') &&
       document.querySelector('.title-input + span[data-words-questions-id]')
