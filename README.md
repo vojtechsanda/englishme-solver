@@ -43,7 +43,7 @@
 
 ### Words
 
-- The url starts with `https://englishme.cz/words/`
+- The url starts with `https://englishme.cz/app/words/`
 
 ```javascript
 // Solver for the words type
@@ -58,7 +58,7 @@ window.save(true);
 
 ### Tests
 
-- The url starts with `https://englishme.cz/tests/`
+- The url starts with `https://englishme.cz/app/tests/`
 
 ```javascript
 // Solver for the tests type
@@ -72,7 +72,7 @@ window.save(true);
 
 ### Sentences
 
-- The url starts with `https://englishme.cz/sentences/`
+- The url starts with `https://englishme.cz/app/sentences/`
 
 ```javascript
 // Solver for the sentences type
@@ -88,14 +88,14 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 
 ## Supported exercises
 
-- Basic type recognition is based on the url -> ht<span>tps://englishme.cz/**words**/
+- Basic type recognition is based on the url -> ht<span>tps://englishme.cz/app/**words**/
 - Words type
   - :heavy_check_mark: Solve everything
   - :heavy_check_mark: Fill current task
 - Tests type
   - :heavy_check_mark: Solve everything
   - :heavy_check_mark: Fill current task
-- Senteces type
+- Sentences type
   - :heavy_check_mark: Solve everything
   - :heavy_check_mark: Fill current task
 
@@ -105,6 +105,9 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 
 ## Changelog
 
+- v2.1.2
+  - Updated exercise recognition url paths
+  - Code improvements
 - v2.1.1
   - Improved and fixed tests filling
 - v2.1.0
@@ -115,7 +118,7 @@ for (let i = 0; i < window.ex.sentencesCount; i++) {
 - v2.0.3
   - Fixed analyzer
 - v2.0.2
-  - Added analyzer and solver for the "senteces" exercise type
+  - Added analyzer and solver for the "sentences" exercise type
   - Added normal README file
   - Simplified solvers code
   - Defined project under the ISC License
